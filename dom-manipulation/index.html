@@ -7,37 +7,53 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       padding: 20px;
+      line-height: 1.45;
     }
     h1, h2 {
       text-align: center;
     }
     #quoteDisplay {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 5px;
+      margin: 16px 0;
+      padding: 14px;
+      background: #f7f7f9;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
       font-style: italic;
       text-align: center;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    label { font-weight: 600; }
+    .row { display: grid; gap: 10px; }
+    .row.cols-2 { grid-template-columns: 1fr 1fr; }
     select, input, button {
-      margin: 5px 0;
-      padding: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
       width: 100%;
       box-sizing: border-box;
     }
     button {
-      background-color: #007bff;
+      background-color: #2563eb;
       color: white;
       border: none;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 700;
     }
-    button:hover {
-      background-color: #0056b3;
+    button:hover { background-color: #1e40af; }
+    .muted { color: #6b7280; font-size: 0.92rem; }
+    .toolbar {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 8px;
     }
+    .hint { margin-top: 6px; }
   </style>
 </head>
 <body>
@@ -47,15 +63,26 @@
   <label for="categorySelect">Choose category:</label>
   <select id="categorySelect"></select>
 
-  <div id="quoteDisplay">Select a category to see a quote.</div>
-  <button onclick="showRandomQuote()">Show New Quote</button>
+  <div id="quoteDisplay">Select a category or click “Show New Quote”.</div>
+  <div class="toolbar">
+    <button onclick="showRandomQuote()">Show New Quote</button>
+    <button onclick="exportToJsonFile()">Export Quotes (JSON)</button>
+  </div>
 
   <h2>Add a New Quote</h2>
-  <div>
+  <div class="row cols-2">
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+  </div>
+  <div class="row" style="margin-top: 8px;">
     <button onclick="addQuote()">Add Quote</button>
   </div>
+
+  <h2>Import Quotes (JSON)</h2>
+  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  <div class="hint muted">Upload a JSON file with an array of objects like: <code>[{"text":"...","category":"..."}]</code></div>
+
+  <p id="status" class="muted"></p>
 
   <script src="script.js"></script>
 </body>
