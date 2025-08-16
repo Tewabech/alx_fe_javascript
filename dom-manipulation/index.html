@@ -3,55 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator</title>
+  <title>Dynamic Quote Generator with Sync</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    #quoteDisplay {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f0f0f0;
-      border-radius: 5px;
-      font-style: italic;
-      text-align: center;
-    }
-    select, input, button {
-      margin: 5px 0;
-      padding: 8px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    #quoteList {
-      margin-top: 20px;
-    }
-    #quoteList div {
-      padding: 8px;
-      border-bottom: 1px solid #ccc;
-    }
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 20px; }
+    h1, h2 { text-align: center; }
+    #quoteDisplay { margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 5px; font-style: italic; text-align: center; }
+    select, input, button { margin: 5px 0; padding: 8px; width: 100%; box-sizing: border-box; }
+    button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+    button:hover { background-color: #0056b3; }
+    #quoteList div { padding: 8px; border-bottom: 1px solid #ccc; }
+    #syncStatus { margin-top: 10px; text-align: center; color: green; font-weight: bold; }
   </style>
 </head>
 <body>
 
-  <h1>Dynamic Quote Generator</h1>
+  <h1>Dynamic Quote Generator with Sync</h1>
 
-  <!-- Category Filter -->
   <label for="categoryFilter">Filter by Category:</label>
   <select id="categoryFilter" onchange="filterQuotes()">
     <option value="all">All Categories</option>
@@ -71,6 +38,8 @@
 
   <h2>Quotes List</h2>
   <div id="quoteList"></div>
+
+  <div id="syncStatus">Sync Status: Idle</div>
 
   <script src="script.js"></script>
 </body>
