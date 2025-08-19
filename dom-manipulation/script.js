@@ -249,7 +249,7 @@ function createAddQuoteForm(categorySelect) {
       category: categoryInput.value.trim()
     };
     // Export Button
-const exportBtn = el("button", "Export Quotes");
+const exportBtn = querySelector("Button")
 exportBtn.onclick = exportToJsonFile;
 
 // Import File Input
