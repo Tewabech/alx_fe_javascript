@@ -248,6 +248,13 @@ function createAddQuoteForm(categorySelect) {
       text: quoteInput.value.trim(),
       category: categoryInput.value.trim()
     };
+    // Export Button
+const exportBtn = el("button", "Export Quotes");
+exportBtn.onclick = exportToJsonFile;
+
+// Import File Input
+const importInput = el("input", "", { type: "file", accept: ".json" });
+importInput.addEventListener("change", importFromJsonFile);
     // Validate
     if (!newQuote.text || !newQuote.category) {
       showStatus("Please provide both quote text and category.");
