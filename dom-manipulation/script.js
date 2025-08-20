@@ -26,7 +26,7 @@ function loadQuotes() {
 const SERVER_URL = "https://jsonplaceholder.typicode.com/posts";
 
 // Fetch from server (server takes precedence)
-async function fetchFromServer() {
+async function fetchQuotesFromServer() {
   try {
     const res = await fetch(SERVER_URL);
     const data = await res.json();
@@ -131,7 +131,7 @@ importFile.addEventListener("change", (event) => {
 // ---------------- Initialize ----------------
 loadQuotes();
 loadCategories();
-fetchFromServer();
+fetchQuotesFromServer();
 
 // Periodic sync every 10s
-setInterval(fetchFromServer, 10000);
+setInterval(fetchQuotesFromServer, 10000);
