@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Quote Generator</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app"></div> <!-- Everything will be created here -->
-  <button> Export Quotes</button>
+  <h1>Dynamic Quote Generator</h1>
+
+  <!-- Category selector -->
+  <select id="categorySelect"></select>
+  <button id="newQuoteBtn">Show Random Quote</button>
+  <p id="quoteDisplay">Select a category to see a quote.</p>
+
+  <!-- Add Quote Form -->
+  <form id="quoteForm">
+    <input type="text" id="quoteText" placeholder="Enter quote text" required />
+    <input type="text" id="quoteCategory" placeholder="Enter category" required />
+    <button type="submit">Add Quote</button>
+  </form>
+
+  <!-- Export & Import -->
+  <button id="exportBtn">Export Quotes</button>
+  <input type="file" id="importFile" accept=".json" />
+
   <script src="script.js"></script>
 </body>
 </html>
